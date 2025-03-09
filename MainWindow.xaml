@@ -3,10 +3,54 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wpfAnimatedGif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:ElTiempoWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="450"
+        Background="Black"
+        ResizeMode="NoResize">
     <Grid>
+        <Border BorderBrush="AntiqueWhite" BorderThickness="5">
+            <TextBlock Text="EL TIEMPO" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top" 
+               Margin="0,55,0,0"
+               FontFamily="Press Start 2P"
+               FontSize="36" 
+               Foreground="Yellow"/>
+        </Border>
 
+        <TextBlock Text="WPF" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Top" 
+           Margin="0,110,0,0"
+           FontFamily="Press Start 2P"
+           FontSize="36"
+           Foreground="MediumPurple"/>
+
+        <TextBlock Text="01/01/1999" 
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Top" 
+           Margin="0,170,0,0"
+           FontFamily="Press Start 2P"
+           FontSize="20" 
+           Foreground="White"/>
+
+
+        <Button Content="Mañana" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            Margin="0,0,0,40"  
+            Width="180" 
+            Height="70"
+            Background="DarkCyan"
+            Foreground="White"
+            FontFamily="Press Start 2P"
+            FontSize="24"
+            BorderBrush="AntiqueWhite"
+            BorderThickness="2"/>
     </Grid>
+
+
+
 </Window>
