@@ -10,9 +10,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ElTiempoWPF
-{   
-    
-    public partial class MainWindow : Window
+{
+
+	// prueba de cambio
+	public partial class MainWindow : Window
     {
         public MainWindow()
         {
