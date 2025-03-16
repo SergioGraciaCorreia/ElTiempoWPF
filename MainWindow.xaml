@@ -10,25 +10,28 @@
         Background="Black"
         ResizeMode="NoResize">
     <Grid>
+        <!-- Título superior -->
         <Border BorderBrush="AntiqueWhite" BorderThickness="5">
             <TextBlock Text="EL TIEMPO" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Top" 
-               Margin="0,55,0,0"
-               FontFamily="Press Start 2P"
-               FontSize="36" 
-               Foreground="Yellow"/>
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Top" 
+                       Margin="0,55,0,0"
+                       FontFamily="Press Start 2P"
+                       FontSize="36" 
+                       Foreground="Yellow"/>
         </Border>
 
         <TextBlock Text="WPF" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Top" 
-           Margin="0,110,0,0"
-           FontFamily="Press Start 2P"
-           FontSize="36"
-           Foreground="MediumPurple"/>
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,110,0,0"
+                   FontFamily="Press Start 2P"
+                   FontSize="36"
+                   Foreground="MediumPurple"/>
 
-        <TextBlock Text="01/01/1999" 
+        <!-- Fecha actual -->
+        <TextBlock x:Name="DateTextBlock"
+           Text="{Binding CurrentDate}" 
            HorizontalAlignment="Center" 
            VerticalAlignment="Top" 
            Margin="0,170,0,0"
@@ -37,20 +40,60 @@
            Foreground="White"/>
 
 
-        <Button Content="Mañana" 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Bottom" 
-            Margin="0,0,0,40"  
-            Width="180" 
-            Height="70"
-            Background="DarkCyan"
-            Foreground="White"
-            FontFamily="Press Start 2P"
-            FontSize="24"
-            BorderBrush="AntiqueWhite"
-            BorderThickness="2"/>
+        <!-- Entrada para la ciudad -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
+            <TextBlock Text="Ciudad:" 
+               FontFamily="Press Start 2P" 
+               FontSize="18" 
+               Foreground="White" 
+               VerticalAlignment="Center"/>
+            <TextBox x:Name="CityTextBox" 
+             Width="150" 
+             Margin="10,0,0,0"
+             FontFamily="Arial" 
+             FontSize="20"
+             Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Buscar" 
+            Margin="10,0,0,0" 
+            Width="100" 
+            Height="30" 
+            Background="BlueViolet" 
+            Foreground="White" 
+            FontFamily="Arial" 
+            FontSize="20" 
+            BorderBrush="AntiqueWhite" 
+            BorderThickness="1"
+            Command="{Binding SearchCommand}"/>
+        </StackPanel>
+
+        <!-- Espacio para el GIF (estado del clima) -->
+        
+
+        <!-- Botones HOY y MAÑANA -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Margin="0,0,0,40">
+            <Button Content="Hoy" 
+                    Width="180" 
+                    Height="70"
+                    Background="DarkCyan"
+                    Foreground="White"
+                    FontFamily="Press Start 2P"
+                    FontSize="26"
+                    BorderBrush="AntiqueWhite"
+                    BorderThickness="2"
+                    Margin="0,0,10,0"/>
+            <Button Content="Mañana" 
+                    Width="180" 
+                    Height="70"
+                    Background="DarkCyan"
+                    Foreground="White"
+                    FontFamily="Press Start 2P"
+                    FontSize="26"
+                    BorderBrush="AntiqueWhite"
+                    BorderThickness="2"/>
+        </StackPanel>
     </Grid>
-
-
-
 </Window>
+
