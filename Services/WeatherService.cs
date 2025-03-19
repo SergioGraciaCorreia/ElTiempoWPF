@@ -5,11 +5,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows;
 using Newtonsoft.Json;
 using ElTiempoWPF.Models;
 
@@ -45,10 +40,36 @@ namespace ElTiempoWPF.Services
 				catch (Exception ex)
 				{
 					// Muestra error y retorna null.
-					MessageBox.Show("Error al obtener datos: " + ex.Message);
+					// MessageBox.Show("Error al obtener datos: " + ex.Message);
+					// De momento comentado porque con lo que se ve en pantalla es suficiente.
 					return null;
 				}
 			}
 		}
+
+		public async Task<string> GetForecastDataAsync(string city)
+		{
+			using (HttpClient client = new HttpClient())
+			{
+				try
+				{
+					// Usamos el endpoint "forecast" para pronósticos.
+					string url = $"https://api.openweathermap.org/data/2.5/forecast?q={city}&appid={_apiKey}&units=metric&lang=es";
+					HttpResponseMessage response = await client.GetAsync(url);
+					response.EnsureSuccessStatusCode();
+					string result = await response.Content.ReadAsStringAsync();
+					return result;
+				}
+				catch (Exception ex)
+				{
+					//MessageBox.Show("Error al obtener el pronóstico: " + ex.Message);
+					// De momento comentado porque con lo que se ve en pantalla es suficiente.
+					return null;
+				}
+			}
+		}
+
 	}
+
+
 }

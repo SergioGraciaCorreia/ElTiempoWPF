@@ -23,10 +23,13 @@ namespace ElTiempoWPF
         {
             InitializeComponent();
 			DataContext = new MainViewModel();
+			
+
 
 		}
-
 		
+
+
 
 	}
 }

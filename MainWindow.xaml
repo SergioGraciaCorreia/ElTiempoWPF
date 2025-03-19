@@ -31,43 +31,49 @@
 
         <!-- Fecha actual -->
         <TextBlock x:Name="DateTextBlock"
-           Text="{Binding CurrentDate}" 
-           HorizontalAlignment="Center" 
-           VerticalAlignment="Top" 
-           Margin="0,170,0,0"
-           FontFamily="Press Start 2P"
-           FontSize="20" 
-           Foreground="White"/>
-
-
-        <!-- Entrada para la ciudad -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,210,0,0">
-            <TextBlock Text="Ciudad:" 
-               FontFamily="Press Start 2P" 
-               FontSize="18" 
-               Foreground="White" 
-               VerticalAlignment="Center"/>
-            <TextBox x:Name="CityTextBox" 
-             Width="150" 
-             Margin="10,0,0,0"
-             FontFamily="Arial" 
-             FontSize="20"
-             Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Buscar" 
-            Margin="10,0,0,0" 
-            Width="100" 
-            Height="30" 
-            Background="BlueViolet" 
-            Foreground="White" 
-            FontFamily="Arial" 
-            FontSize="20" 
-            BorderBrush="AntiqueWhite" 
-            BorderThickness="1"
-            Command="{Binding SearchCommand}"/>
-        </StackPanel>
+                   Text="{Binding CurrentDate}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   Margin="0,170,0,0"
+                   FontFamily="Press Start 2P"
+                   FontSize="20" 
+                   Foreground="White"/>
 
         <!-- Espacio para el GIF (estado del clima) -->
-        
+        <Image  HorizontalAlignment="Center" 
+                VerticalAlignment="Center"
+                Width="300" Height="300"
+                wpfAnimatedGif:ImageBehavior.AnimatedSource="{Binding WeatherGif}" />
+
+
+        <!-- Entrada para la ciudad: se ha reubicado abajo, justo encima de los botones -->
+        <StackPanel Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    Margin="0,0,0,130">
+            <TextBlock Text="Ciudad:" 
+                       FontFamily="Press Start 2P" 
+                       FontSize="18" 
+                       Foreground="White" 
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="CityTextBox" 
+                     Width="150" 
+                     Margin="10,0,0,0"
+                     FontFamily="Arial" 
+                     FontSize="20"
+                     Text="{Binding City, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Buscar" 
+                    Margin="10,0,0,0" 
+                    Width="100" 
+                    Height="30" 
+                    Background="BlueViolet" 
+                    Foreground="White" 
+                    FontFamily="Arial" 
+                    FontSize="20" 
+                    BorderBrush="AntiqueWhite" 
+                    BorderThickness="1"
+                    Command="{Binding SearchCommand}"/>
+        </StackPanel>
 
         <!-- Botones HOY y MAÑANA -->
         <StackPanel Orientation="Horizontal" 
@@ -83,7 +89,8 @@
                     FontSize="26"
                     BorderBrush="AntiqueWhite"
                     BorderThickness="2"
-                    Margin="0,0,10,0"/>
+                    Margin="0,0,10,0"
+                    Command="{Binding TodayCommand}"/>
             <Button Content="Mañana" 
                     Width="180" 
                     Height="70"
@@ -92,8 +99,10 @@
                     FontFamily="Press Start 2P"
                     FontSize="26"
                     BorderBrush="AntiqueWhite"
-                    BorderThickness="2"/>
+                    BorderThickness="2"
+                    Command="{Binding TomorrowCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
+
 
